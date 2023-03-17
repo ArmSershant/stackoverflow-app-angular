@@ -1,0 +1,52 @@
+<div class="container">
+  <div>
+    <h2>Question</h2>
+    <p>{{ question.text }}</p>
+  </div>
+  <div>
+    <h2>Category</h2>
+    <p>{{ question.category }}</p>
+  </div>
+  <div>
+    <p>{{ question.countOfLikes }} Likes</p>
+  </div>
+  <h2>Comments</h2>
+  <div class="commentsDiv">
+    <div *ngFor="let comment of question.comments">
+      <p>Answer: {{ comment.text }}</p>
+      <p>Email: {{ comment.email }}</p>
+      <small>{{ comment.time }}</small>
+    </div>
+  </div>
+  <div class="answersDiv">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <mat-form-field class="example-full-width">
+        <mat-label>Answer the question</mat-label>
+        <input
+          type="text"
+          id="text"
+          name="text"
+          #text="ngModel"
+          matInput
+          ngModel
+          placeholder="Write your answer here..."
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Write your email</mat-label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          #email="ngModel"
+          matInput
+          ngModel
+          placeholder="Please write your email"
+          required
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary">Answer</button>
+    </form>
+  </div>
+</div>

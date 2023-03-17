@@ -1,0 +1,36 @@
+<div class="container">
+  <mat-form-field class="example-full-width">
+    <mat-label>Search for question</mat-label>
+    <input
+      matInput
+      [(ngModel)]="searchText"
+      placeholder="search..."
+      autofocus
+    />
+  </mat-form-field>
+  <mat-card
+    class="mat-card"
+    *ngFor="let question of questions | search : searchText"
+  >
+    <div class="cardDiv">
+      <div>
+        <mat-card-title>Question</mat-card-title>
+        <mat-card-content>{{
+          question.text | truncate : 30 : "..."
+        }}</mat-card-content>
+      </div>
+      <div>
+        <mat-card-title>Category</mat-card-title>
+        <mat-card-subtitle>{{ question.category }}</mat-card-subtitle>
+      </div>
+      <button
+        mat-button
+        class="likeBtn"
+        (click)="onLike(question.countOfLikes)"
+      >
+        ❤️{{ question.countOfLikes }}
+      </button>
+      <a mat-button [routerLink]="['/single-question', question.id]">Details</a>
+    </div>
+  </mat-card>
+</div>

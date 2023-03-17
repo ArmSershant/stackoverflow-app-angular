@@ -1,0 +1,26 @@
+<div class="addQuestionDiv">
+  <form #f="ngForm" class="questionForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field class="example-full-width">
+      <mat-label>Add your question</mat-label>
+      <input
+        id="text"
+        ngModel
+        name="text"
+        #text="ngModel"
+        matInput
+        placeholder="Ask your question here..."
+        autofocus
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select category</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let category of categories">
+          {{category}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Save</button>
+  </form>
+</div>

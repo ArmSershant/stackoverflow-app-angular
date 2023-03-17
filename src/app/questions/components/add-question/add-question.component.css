@@ -1,0 +1,12 @@
+.addQuestionDiv {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.questionForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
